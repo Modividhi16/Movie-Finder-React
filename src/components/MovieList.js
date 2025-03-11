@@ -1,14 +1,13 @@
 import React from "react";
+import MovieCard from "./MovieCard";
 
-const MovieList = (props) => {
+const MovieList = ({movies}) => {
     return (
-        <>
-            {props.movies.map((movie, index) => (
-            <div>
-                <img src={movie.Poster} alt='movie'></img>
-            </div>
-            ))}
-        </>
+        <div className="movie-container">
+            {movies.length > 0 && movies.map((movie) => (
+                <MovieCard key={movie.id} movie={movie}/>
+            ) )}
+        </div>
     );
 };
 

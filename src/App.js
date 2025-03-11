@@ -1,34 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import MovieList from "./components/MovieList";
+import MovieDetails from "./components/MovieDetails";
+import {Routes, Route } from "react-router-dom";
+const apiKey = process.env.REACT_APP_MOVIE_API_KEY;
 
-
-
-
+const api_url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=${apiKey}`;
 const App = () => {
-  const [movies, setMovies] = useState([ {
-    "Title": "Star Wars: Episode IV - A New Hope",
-    "Year": "1977",
-    "imdbID": "tt0076759",
-    "Type": "movie",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BOGUwMDk0Y2MtNjBlNi00NmRiLTk2MWYtMGMyMDlhYmI4ZDBjXkEyXkFqcGc@._V1_SX300.jpg"
-},
-{
-    "Title": "Star Wars: Episode V - The Empire Strikes Back",
-    "Year": "1980",
-    "imdbID": "tt0080684",
-    "Type": "movie",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BMTkxNGFlNDktZmJkNC00MDdhLTg0MTEtZjZiYWI3MGE5NWIwXkEyXkFqcGc@._V1_SX300.jpg"
-},
-]);
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    fetch(api_url)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setMovies(data.results || []);
+      })
+      .catch((error) => console.error("Error fetching movies:", error));
+  }, []);
 
   return (
-  <div className='container-fluid movie-app'>
-    <div className='row'>
-      <MovieList movies={movies} />
+    <div>
+        <h1>Movie Finder</h1>
+        <Routes>
+          <Route path="/" element={<MovieList movies={movies} />} />
+          <Route path="/movie/:id" element={<MovieDetails />} />
+      </Routes>
     </div>
-  </div>
   );
 };
 
