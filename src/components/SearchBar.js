@@ -78,7 +78,7 @@ const SearchBar = ({ onSearch, loading }) => {
             Clear
           </Button>
         )}
-        <Button type="submit" color="primary" className="ms-2">
+        <Button type="submit" className="ms-2 custom-search-button">
           Search
         </Button>
       </div>
