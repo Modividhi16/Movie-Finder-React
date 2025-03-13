@@ -20,6 +20,13 @@ const MovieCard = ({ movie, addToFavorites, removeFromFavorites, isFavorite, isF
             alt={movie.title}
           />
         </Link>
+
+        
+        {/* Movie details (rating & release date) - Show on hover */}
+        <div className="movie-hover-info">
+          <p>📅 {movie.release_date}</p>
+        </div>
+
         {/* Show "Add to Your Favorite" on hover for movies row, if not favorited */}
         {!isFavoritesRow && !isFavorite && (
           <div className="favorite-overlay" onClick={handleFavoriteToggle}>

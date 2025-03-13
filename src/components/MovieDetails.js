@@ -23,15 +23,26 @@ const MovieDetails = () => {
 
   return (
     <div className="movie-details">
-      <h2>{movie.title}</h2>
-      <img
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}  // Movie poster
-        alt={movie.title}
-      />
-      <p><strong>Overview:</strong> {movie.overview}</p>  {/* Movie overview */}
-      <p><strong>Rating:</strong> ⭐ {movie.vote_average}</p>  {/* Movie rating */}
-      <p><strong>Release Date:</strong> {movie.release_date}</p>  {/* Movie release date */}
+      <div className="background-overlay"></div> 
+
+ <div className="movie-title">
+    <h2>{movie.title}</h2>
+  </div>
+  
+    <div className="movie-details-content">
+      <div className="movie-poster">
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}  // Movie poster
+          alt={movie.title}
+        />
+      </div>
+      <div className="movie-overview">
+        <p><strong>Overview:</strong> {movie.overview}</p>  {/* Movie overview */}
+        <p><strong>Rating:</strong> ⭐ {movie.vote_average}</p>  {/* Movie rating */}
+        <p><strong>Release Date:</strong> {movie.release_date}</p>  {/* Movie release date */}
+      </div>
     </div>
+  </div>
   );
 };
 
