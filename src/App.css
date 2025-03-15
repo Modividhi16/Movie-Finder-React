@@ -25,11 +25,7 @@ h2 {
   width: 100%;
   position: relative;
   z-index: 2;
-  
 }
-
-
-
 
 .movie-container::-webkit-scrollbar {
   display: none; /* Hide scrollbar for Chrome & Safari */
@@ -51,7 +47,7 @@ h2 {
   overflow: hidden;
   text-align: center;
   transition: transform 0.3s ease-in-out;
-  background-color: rgba(0, 0, 0, 0.2); 
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .movie-card:hover {
@@ -63,7 +59,6 @@ h2 {
 
 .image-container {
   position: relative;
-  
 }
 
 .movie-card img {
@@ -179,9 +174,9 @@ button {
   position: relative;
 }
 
-/* Show buttons when hovering over the movie list container */
+
 .movie-list-container:hover .scroll-btn {
-  opacity: 1; 
+  opacity: 1;
 }
 
 .scroll-btn {
@@ -193,7 +188,7 @@ button {
   cursor: pointer;
   font-size: 24px;
   padding: 10px;
-  opacity: 0; /* Initially hidden */
+  opacity: 0; 
   transition: opacity 0.3s ease-in-out;
 }
 
@@ -210,8 +205,7 @@ button {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.712); /* Dark overlay */
-  color: white;
+  background: rgba(0, 0, 0, 0.712); 
   padding: 8px;
   text-align: center;
   font-size: 14px;
@@ -220,34 +214,34 @@ button {
   transition: opacity 0.3s ease-in-out;
 }
 
-/* Show details when hovering */
+
 .image-container:hover .movie-hover-info {
   opacity: 1;
   visibility: visible;
 }
 
 .movie-title {
-  background-color: rgba(0, 0, 0, 0.291); 
-  color: white; 
-  padding: 10px 20px; 
-  border-radius: 5px; 
-  max-width: fit-content; 
-  margin-bottom: 20px; 
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
+  background-color: rgba(0, 0, 0, 0.291);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  max-width: fit-content;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .movie-title h2 {
-  margin: 0; 
-  font-size: 50px; 
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  margin: 0;
+  font-size: 50px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
 .movie-details-content {
   display: flex;
-  align-items: flex-start; /* Align items to the top */
-  gap: 20px; /* Space between the poster and overview */
-  opacity: 0;  /* Start invisible */
+  align-items: flex-start; 
+  gap: 20px; 
+  opacity: 0; 
   animation: fadeIn 1s ease-in-out forwards;
 }
 
@@ -256,31 +250,31 @@ button {
   padding: 20px;
 }
 
+
 .movie-poster {
   width: 60%;
   height: auto;
   display: flex;
   overflow: hidden;
-
 }
 
 .movie-poster img {
   width: 100%;
   height: 100%;
-  object-fit: cover;  
+  object-fit: cover;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 
-
 @keyframes fadeIn {
   0% {
-    opacity: 0;  /* Start invisible */
+    opacity: 0;
   }
   100% {
-    opacity: 1;  /* End visible */
+    opacity: 1; 
   }
 }
+
 
 .background-overlay {
   position: fixed;
@@ -288,11 +282,40 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Dark overlay with 70% opacity */
-  z-index: -1; /* Place it behind the content */
+  background: rgba(0, 0, 0, 0.7);
+  z-index: -1; 
   transition: background 0.3s ease;
 }
 
 
+@media (max-width: 1200px) {
+  .movie-details-content {
+    flex-direction: column;
+    align-items: center; 
+    text-align: center; 
+    gap: 20px; 
+    animation: fadeInColumn 0.5s ease-in-out forwards; 
+  }
+
+  .movie-poster {
+    width: 100%; 
+    max-width: 400px; 
+  }
+
+  .movie-overview {
+    font-size: 1.5rem; 
+    padding: 10px;
+  }
+}
 
 
+@keyframes fadeInColumn {
+  0% {
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
